@@ -11,7 +11,7 @@ COPY helloworld.go helloworld_test.go .
 RUN CGO_ENABLED=0 GOOS=linux go test
 
 # Build the code inside the container.
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o picalc
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o helloworld
 
 # Use a Docker multi-stage build to create a lean production image.
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
