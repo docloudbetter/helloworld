@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: helloworld-
+spec:
+  pipelineRef:
+    name: build-and-deploy-pipeline
+  params:
+    - name: gitUrl
+      value: https://github.com/docloudbetter/helloworld.git
+    - name: gitRevision
+      value: main
+    - name: pathToYamlFile
+      value: "kubernetes/helloworld.yaml"
+    - name: imageUrl
+      value: registry.anthonydo.com/helloworld
+    - name: imageTag
+      value: "1.0"
+  serviceAccountName: pipeline-account
+  workspaces:
+    - name: git-source
+      persistentVolumeClaim:
+        claimName: helloworld-source-pvc
