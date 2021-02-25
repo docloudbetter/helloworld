@@ -97,12 +97,12 @@ kubectl annotate secret pipeline-registry-secret tekton.dev/docker-0=<REGISTRY>
 
 ```bash
 kubectl create secret docker-registry regcred  \
-  --docker-server=registry.example.com \
+  --docker-server=<REGISTRY> \
   --docker-username=<user> \
   --docker-password=<password> \
   --docker-email=<email>
 
-kubectl annotate secret anthony-registry-secret tekton.dev/docker-0=registry.anthonydo.com
+kubectl annotate secret pipeline-registry-secret tekton.dev/docker-0=<REGISTRY>
 ```
 
 ## Now you can create the ServiceAccount using the following YAML:
@@ -113,7 +113,7 @@ kind: ServiceAccount
 metadata:
   name: pipeline-account
 secrets:
-- name: anthony-registry-secret
+- name: pipeline-registry-secret
 ---
 apiVersion: v1
 kind: Secret
