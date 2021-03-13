@@ -6,7 +6,8 @@
 Tekton requires Kubernetes version 1.15 or higher.
 
 ```bash
-kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.11.1/release.yaml
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+
 ```
 
 Monitor the installation using the following command until all components show a running status:
